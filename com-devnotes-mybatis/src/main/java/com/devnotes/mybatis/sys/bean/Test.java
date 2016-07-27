@@ -1,19 +1,20 @@
 package com.devnotes.mybatis.sys.bean;
 
-import java.io.InputStream;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.devnotes.mybatis.sys.util.MybatisUtil;
 
 public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String resource = "app-config.xml"; 
-		InputStream is = Test.class.getClassLoader().getResourceAsStream(resource);
+		//String resource = "app-config.xml"; 
+		//InputStream is = Test.class.getClassLoader().getResourceAsStream(resource);
 		
-		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
+		//SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
+		
+		SqlSessionFactory factory=MybatisUtil.getFactory();
 		
 		SqlSession session = factory.openSession();
 		
