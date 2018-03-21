@@ -14,9 +14,7 @@
         </environment>
     </environments>
     
-     <mappers>
-        <!-- 注册userMapper.xml文件， 
-        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+  <mappers>
         <mapper resource="com/devnotes/mybatis/sys/mappers/userMapper.xml"/>
     </mappers>
     

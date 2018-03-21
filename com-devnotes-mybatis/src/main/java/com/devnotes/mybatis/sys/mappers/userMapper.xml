@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.devnotes.mybatis.sys.mappers.userMapper">
-	<!-- 
-		根据id查询得到一个user对象
-	 -->
-	 <select id="getUser" parameterType="String" resultType="com.devnotes.mybatis.sys.bean.UserInfo">
-	 	select * from sys_user where userid=#{userid}
+	<!--  根据id查询得到一个user对象  -->
+	 <select id="getUser" parameterType="int" resultType="com.devnotes.mybatis.sys.bean.UserInfo">
+	 	select * from sys_user where user_id=#{userid}
 	 </select>
+
+	<!--插入一个对象-->
+	<insert id="addUser" parameterType="com.devnotes.mybatis.sys.bean.UserInfo">
+ 		insert into sys_user(user_name,user_pwd,email) values(#{userName},#{userPwd},#{email})
+	</insert>
 </mapper>
