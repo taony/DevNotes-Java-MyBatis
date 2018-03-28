@@ -4,10 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 public class TestUser {
 
@@ -78,5 +75,16 @@ public class TestUser {
         sqlSession.close();
     }
 
+    @Test
+    public void testDelete(){
+        SqlSessionFactory factory=MybatisUtil.getFactory();
+        SqlSession sqlSession=factory.openSession();
+        String statement="com.devnotes.mybatis.sys.mappers.userMapper.delUser";
+        int i=sqlSession.delete(statement,1);
+        System.out.println(i);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
 
 }

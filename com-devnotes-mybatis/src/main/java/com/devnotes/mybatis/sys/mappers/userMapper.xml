@@ -31,5 +31,8 @@
       UPDATE SYS_USER SET user_name=#{userName},user_pwd=#{userPwd},email=#{email} WHERE user_id=#{userId}
     </update>
 
+    <delete id="delUser" parameterType="int" >
+        delete from sys_user where user_id=#{userId}
+    </delete>
 
 </mapper>
