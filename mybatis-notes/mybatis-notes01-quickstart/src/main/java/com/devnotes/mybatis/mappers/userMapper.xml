@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.devnotes.mybatis.sys.mappers.userMapper">
+
+    <resultMap id="userResultMap" type="com.devnotes.mybatis.beans.UserInfo">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_pwd" property="userPwd"/>
+        <result column="email" property="email"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <!--  根据id查询得到一个user对象  -->
+    <select id="getUser" parameterType="int" resultMap="userResultMap">
+	 	select * from sys_user where user_id=#{userid}
+	 </select>
+
+    <!--获取所有用户-->
+    <select id="getAllUser" resultMap="userResultMap">
+        select * from sys_user
+    </select>
+
+    <!--插入一个对象-->
+    <insert id="addUser" parameterType="com.devnotes.mybatis.beans.UserInfo">
+ 		insert into sys_user(user_name,user_pwd,email) values(#{userName},#{userPwd},#{email})
+	</insert>
+
+    <!--更新用户-->
+    <update id="updateUser" parameterType="com.devnotes.mybatis.beans.UserInfo">
+      UPDATE SYS_USER SET user_name=#{userName},user_pwd=#{userPwd},email=#{email} WHERE user_id=#{userId}
+    </update>
+
+    <delete id="delUser" parameterType="int" >
+        delete from sys_user where user_id=#{userId}
+    </delete>
+
+</mapper>

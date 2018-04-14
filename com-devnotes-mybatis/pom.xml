@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.devnotes.mybatis</groupId>
 	<artifactId>com-devnotes-mybatis</artifactId>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>com-devnotes-mybatis Maven Webapp</name>
 	<url>http://maven.apache.org</url>
