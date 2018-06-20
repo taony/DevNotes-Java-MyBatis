@@ -3,7 +3,7 @@
 
 <mapper namespace="com.devnotes.mybatis.sys.mappers.userMapper">
 
-    <resultMap id="userResultMap" type="com.devnotes.mybatis.beans.UserInfo">
+    <resultMap id="userResultMap" type="UserInfo">
         <id column="user_id" property="userId"/>
         <result column="user_name" property="userName"/>
         <result column="user_pwd" property="userPwd"/>
@@ -22,12 +22,12 @@
     </select>
 
     <!--插入一个对象-->
-    <insert id="addUser" parameterType="com.devnotes.mybatis.beans.UserInfo">
+    <insert id="addUser" parameterType="UserInfo">
  		insert into sys_user(user_name,user_pwd,email) values(#{userName},#{userPwd},#{email})
 	</insert>
 
     <!--更新用户-->
-    <update id="updateUser" parameterType="com.devnotes.mybatis.beans.UserInfo">
+    <update id="updateUser" parameterType="UserInfo">
       UPDATE SYS_USER SET user_name=#{userName},user_pwd=#{userPwd},email=#{email} WHERE user_id=#{userId}
     </update>
 
